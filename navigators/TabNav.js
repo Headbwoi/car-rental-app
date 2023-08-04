@@ -1,14 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Home from "../screens/Home"
 import Profile from "../screens/Profile"
-import { HomeIcon, UserCircle2 } from "lucide-react-native"
+import Ionicons from "react-native-vector-icons/Ionicons"
 
 const Tab = createBottomTabNavigator()
-
-const Icons = {
-  home: <HomeIcon />,
-  profile: <UserCircle2 />,
-}
 
 function TabNav({ navigation }) {
   return (
@@ -19,22 +14,29 @@ function TabNav({ navigation }) {
           let iconName
 
           if (route.name === "HomeScreen") {
-            // iconName = focused ? "home" : "home"
-            iconName = "home"
+            iconName = focused ? "home" : "home-outline"
           } else if (route.name === "Profile") {
-            iconName = "profile"
+            iconName = focused ? "person-circle" : "person-circle-outline"
           }
 
-          // You can return any component that you like here!
-          return Icons[iconName]
+          return (
+            <Ionicons
+              name={iconName}
+              size={size}
+              color={color}
+              key={iconName}
+            />
+          )
         },
-        tabBarActiveTintColor: "black",
+        tabBarActiveTintColor: "#2563eb",
         tabBarInactiveTintColor: "gray",
         tabBarStyle: {
           height: 60,
           backgroundColor: "#fff",
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
+          borderRadius: 20,
+          marginBottom: 20,
+          marginHorizontal: 10,
+          position: "absolute",
         },
         tabBarHideOnKeyboard: true,
         tabBarShowLabel: false,

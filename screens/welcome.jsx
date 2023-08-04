@@ -2,14 +2,14 @@ import { View, Text, Image, Pressable } from "react-native"
 
 const Welcome = ({ navigation }) => {
   return (
-    <View className="flex-1 relative">
+    <View className="relative flex-1">
       <Image
         source={require("../assets/images/welcome.webp")}
-        className="w-full h-full object-scale-down"
+        className="object-scale-down w-full h-full"
       />
 
-      <View className="absolute bottom-10 left-0 p-5 space-y-5">
-        <Text className="text-white font-bold text-4xl text-center">
+      <View className="absolute left-0 p-5 space-y-5 bottom-10">
+        <Text className="text-4xl font-bold text-center text-white">
           Find and Rent Cars in easy steps
         </Text>
 
@@ -19,7 +19,7 @@ const Welcome = ({ navigation }) => {
             navigation.navigate("Nav")
           }}
         >
-          <Text className="font-semibold text-white text-lg">Let's Go</Text>
+          <Text className="text-lg font-semibold text-white">Let's Go</Text>
         </Pressable>
       </View>
     </View>
